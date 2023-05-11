@@ -5,7 +5,8 @@ body {
     color: black;
 }
 
-#bet {
+#bet,
+#hit {
     visibility: hidden;
 }
 

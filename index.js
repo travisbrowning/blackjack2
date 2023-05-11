@@ -14,12 +14,27 @@ function bet() {
     if (sum > dealerSum && sum < 22 && dealerSum < 22 && isAlive === true && hasBlackjack === false) {
         dealerSays.textContent = `"Dag nabbit you win! My hand was ${dealerSum}"`
         isAlive = false;
+        document.getElementById("bet").style.visibility = "hidden";
+        document.getElementById("hit").style.visibility = "hidden";
+
     } else if (sum < dealerSum && dealerSum < 22 && isAlive === true && hasBlackjack === false) {
         isAlive = false;
-        dealerSays.textContent = `Sorry Pardner my ${dealerSum} beats your ${sum}`
+        dealerSays.textContent = `Sorry Pardner my ${dealerSum} beats your ${sum}`;
+        document.getElementById("bet").style.visibility = "hidden";
+        document.getElementById("hit").style.visibility = "hidden";
+
     } else if (dealerSum === sum && isAlive === true && hasBlackjack === false) {
         isAlive = false;
-        dealerSays.textContent = "Dealer wins all ties, Padner. Better luck next time."
+        dealerSays.textContent = `"Dealer wins all ties, Padner. Better luck next time. Looks like we both got us a ${sum}"`;
+        document.getElementById("bet").style.visibility = "hidden";
+        document.getElementById("hit").style.visibility = "hidden";
+
+    } else if (dealerSum > 21 && isAlive === true) {
+        isAlive = false;
+        dealerSays.textContent = `Well I reckin' I busted with a ${dealerSum}!`;
+        document.getElementById("bet").style.visibility = "hidden";
+        document.getElementById("hit").style.visibility = "hidden";
+
     }
 }
 
@@ -61,6 +76,7 @@ function startGame() {
     sum = card1 + card2;
     dealerSum = dealerCard1 + dealerCard2;
     document.getElementById("bet").style.visibility = "visible";
+    document.getElementById("hit").style.visibility = "visible";
     renderGame();
 }
 
@@ -78,10 +94,14 @@ function renderGame() {
         message = `"Wanna'nuther card, Pardner?"`;
     } else if (sum === 21) {
         hasBlackjack = true;
-        message = `"Gul' darnit you gotta Blackjack!"`;
+        message = `"Gul' darnit you gotta Blackjack! You won, hoss!"`;
+        document.getElementById("bet").style.visibility = "hidden";
+        document.getElementById("hit").style.visibility = "hidden";
     } else {
         isAlive = false;
         message = `"You busted, Pardner. 'Nuther round?"`;
+        document.getElementById("bet").style.visibility = "hidden";
+        document.getElementById("hit").style.visibility = "hidden";
     }
 
     dealerSays.textContent = message;
