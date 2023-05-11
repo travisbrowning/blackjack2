@@ -1,0 +1,49 @@
+body {
+    background-color: #35654D;
+    text-align: center;
+    font-family: sans-serif;
+    color: black;
+}
+
+#bet {
+    visibility: hidden;
+}
+
+h1 {
+    font-size: clamp(15px, 4.5vw, 75px);
+}
+
+h2 {
+    font-size: clamp(15px, 4vw, 65px);
+}
+
+h3 {
+    font-size: clamp(15px, 2vw, 40px);
+}
+
+p {
+    font-size: clamp(15px, 2vw, 40px);
+}
+
+button {
+    display: block;
+    margin: 1% auto;
+    width: 20%;
+    padding: 1%;
+    color: #35654D;
+    background-color: goldenrod;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 5px 5px 15px rgba(255, 230, 0, 0.572);
+}
+
+button:active {
+    background-color: goldenrod;
+    box-shadow: 0 2px rgba(218, 165, 32, 0.141);
+    transform: translateY(1px);
+}
